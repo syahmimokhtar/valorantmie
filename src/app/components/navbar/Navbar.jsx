@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import Navlinks from "./Navlinks";
 import MenuOverlay from "./MenuOverlay";
+import Image from 'next/image'
 
 const Navbar = () => {
   const router = useRouter();
@@ -57,10 +58,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed mx-auto border border-[#0A141ECC] top-0 left-0 right-0 z-10 bg-[#0A141ECC] bg-opacity-100">
+    <nav className="fixed mx-auto top-0 left-0 right-0 z-10 bg-[#0A141ECC] bg-opacity-100">
       <div className="flex container lg:py:4 flex-wrap items-center justify-between mx-auto px-5 py-5">
         <Link className="text-2xl md:text=5xl font-semibold" href={"/"}>
-          Syahmi Mokhtar
+          <Image src='/assets/images/valorant.png' alt='valorant'  width={50}
+              height={50} className='relative rounded-full' />
         </Link>
 
         <div className="mobile-menu block md:hidden">
