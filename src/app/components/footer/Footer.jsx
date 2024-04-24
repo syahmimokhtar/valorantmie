@@ -1,0 +1,14 @@
+'use client';
+import React from 'react'
+
+const Footer = () => {
+  return (
+    <footer className="footer bg-[#0A141ECC]  border-l-transparent border-r-transparent text-white">
+      <div className="flex container py-5 px-20 justify-start items-center">
+        <p className=" text-white text-center">&copy; Syahmi Mokhtar. All rights reserved.</p>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer;
