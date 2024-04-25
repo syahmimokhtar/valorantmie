@@ -30,6 +30,7 @@ const nextConfig = {
             pathname: '/media/GJcn6vUXUAEwtsZ.jpg:large',
           },
 
+          
         ],
       },
 
