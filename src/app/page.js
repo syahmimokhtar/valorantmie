@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Carousel from './components/carousel/Carousel'
 import Season from './components/season/Season';
 import Bundle from './components/bundles/Bundle';
+import Agents from './components/agents/Agents';
 import Footer from "./components/footer/Footer";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <Carousel />
         <Season />
         <Bundle />
+        <Agents />
 
       </div>
 

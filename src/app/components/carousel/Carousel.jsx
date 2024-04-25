@@ -41,7 +41,7 @@ const Carousel = () => {
 
   return (
     <section id="default-carousel" className="relative w-full" data-carousel="slide">
-          <div className="relative h-96 overflow-hidden rounded-lg md:h-96">
+          <div className="relative w-full h-96 overflow-hidden md:h-96">
 
           {carouselItems.map((item,index) => (
             <div key={item.id}  className={`${index === currentIndex ? '' : 'hidden'} duration-700 ease-in-out`} data-carousel-item>
