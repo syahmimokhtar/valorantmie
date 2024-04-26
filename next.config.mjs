@@ -30,14 +30,7 @@ const nextConfig = {
             pathname: '/media/GJcn6vUXUAEwtsZ.jpg:large',
           },
 
-          {
-            protocol: 'https',
-            hostname: 'cdna.artstation.com',
-            port: '',
-            pathname: '/p/assets/images/images/050/710/554/4k/suke-fvyuupkviaanauy.jpg?1655487003',
-          },
-
-
+        
         ],
       },
 

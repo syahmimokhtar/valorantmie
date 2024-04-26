@@ -24,7 +24,6 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    font-family: 'MyFont', sans-serif;
 
 }
 
@@ -36,9 +35,25 @@ body {
 
 
 @font-face {
-  font-family: 'MyFont';
+  font-family: 'Bebas Neue';
   src: url('/fonts/BebasNeue-Regular.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
+
 }
 
+@font-face {
+  font-family: 'Oswold';
+  src: url('/fonts/Oswold.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.font-bebas-neue {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-oswold{
+  font-family: 'Oswold', sans-serif;
+}

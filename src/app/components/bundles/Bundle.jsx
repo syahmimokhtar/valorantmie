@@ -19,7 +19,7 @@ const Bundle = () => {
               <h3 className="text-[white] text-center font-bold md:text-4xl  whitespace-nowrap  mb-5">
                 GUN BUDDIES
               </h3>
-              <Button title={`Look More Buddies...`} />
+              <Button title={`Look More Buddies `} />
             </div>
           </div>
         </div>

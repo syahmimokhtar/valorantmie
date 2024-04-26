@@ -49,7 +49,7 @@ const Carousel = () => {
                       
               <div className=" absolute inset-0 flex items-center justify-center">
               <div className="bg-[#DCD9D4] px-4 py-4 rounded">
-                <h2 className="text-[#ff4656] font-bold text-3xl md:text-5xl">{item.name}</h2>
+                <h2 className="text-[#ff4656] font-bold text-3xl md:text-7xl">{item.name}</h2>
               </div>
               </div>
            
