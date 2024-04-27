@@ -34,10 +34,10 @@ const Season = () => {
 
 
   return (
-    <section className="flex relative w-full justify-center items-center ">
+    <section className="flex relative w-full h-full justify-center items-center ">
 
       <div className="relative flex justify-center items-center overflow-hidden">
-          <Image src={`https://pbs.twimg.com/media/GJcn6vUXUAEwtsZ.jpg:large`} width={2000} height={1000} className="w-full h-full object-cover" alt=""/>
+          <Image src={`https://pbs.twimg.com/media/GJcn6vUXUAEwtsZ.jpg:large`} width={2000} height={1000} className="w-full h-full" alt=""/>
       </div>
 
             {season &&

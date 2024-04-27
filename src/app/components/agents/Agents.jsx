@@ -2,8 +2,16 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../button/Button";
+import { useRouter } from "next/navigation";
 
 const Agents = () => {
+
+  const router=useRouter();
+  const viewAgents=()=>
+  {
+    router.push('/agents')
+  }
+
   return (
     <section className="flex relative w-full h-full justify-center items-center ">
       <div className="relative flex justify-center items-center h-full  overflow-hidden xs:overflow-y">
@@ -25,7 +33,7 @@ const Agents = () => {
                   Each Agent is unique, just like the highlight moments of each match!</p>
                 
               </div>
-              <Button title={`View Agents Here`} />
+              <Button title={`View Agents Here`} handleClick={viewAgents}/>
           </div>
 
       </div>
