@@ -51,7 +51,7 @@ const Navbar = () => {
       color: "#ff4656",
     },
     {
-      label: "About Me",
+      label: "About",
       href: "/about",
       color: "",
     },
