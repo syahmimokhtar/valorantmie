@@ -48,21 +48,21 @@ const AgentsCard = () => {
         <Navbar />
 
 
-        <main className="flex min-h-screen flex-col bg-[#0A141ECC] items-center justify-center">
-              <div className="relative flex w-full h-full items-center overflow-hidden">
-                  <Image src={`/assets/images/agent_select.jpg`} width={2000} height={2000} className="w-full h-full opacity-30" alt="agent select" />
-              </div>
+          <main className="flex min-h-screen flex-col bg-[#0A141ECC] items-center justify-center">
+              
+                <Image  priority={true} width={2000} height={2000} src={`/assets/images/agent_select.jpg`}  className="overflow-hidden w-full h-full" alt="agent select" />
 
-              <div className="w-full h-full top-24 absolute grid grid-cols-4 gap-2 mt-4 mb-2">
-                  {agents && (agents.map((agent) => (
-                      <CardAgent key={agent.uuid} imageSrc={agent.background} fullPortraitSrc={agent.fullPortrait} agentName={agent.displayName} />
-                  )))}
-              </div>
+                <div className="relative w-full h-full md:grid md:grid-cols-5 md:gap-3 mt-20 bg-[#0A141ECC] ">
+                    {agents && (agents.map((agent) => (
+                        <CardAgent key={agent.uuid} roleIcon={agent.role.displayIcon} imageSrc={agent.background} fullPortraitSrc={agent.fullPortrait} agentName={`${agent.displayName} - ${agent.role.displayName}`} />
+                    )))}
+                </div>
+    
+          </main>
+
+          <Footer />
 
 
-        </main>
-
-        <Footer />
 
     </>
    
