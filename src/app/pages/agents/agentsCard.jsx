@@ -4,7 +4,7 @@ import { Footer, Navbar } from "@/components";
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-const agentsCard = () => {
+const AgentsCard = () => {
 
     const [agents, setAgents]=useState();
 
@@ -35,4 +35,4 @@ const agentsCard = () => {
   )
 }
 
-export default agentsCard;
+export default AgentsCard;
