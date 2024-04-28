@@ -1,69 +1,67 @@
-
 "use client";
 import React, { useEffect, useState } from "react";
-import Head from 'next/head';
-import Image from 'next/image'
-import { useParams, useRouter , useSearchParams , usePathname } from "next/navigation";
+import Head from "next/head";
+import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "../../../components/navbar/Navbar";
 import Footer from "../../../components/footer/Footer";
-import axios from 'axios';
+import axios from "axios";
 // import CardAgent from "../../components/card/CardAgent";
 
-
-
 const AboutAgent = () => {
+  const [agent, setAgent] = useState([]);
+  const [agents, setAgents] = useState([]);
+  const router = useRouter();
 
-    const [agent, setAgent]=useState([]);
-    const [agents, setAgents]=useState([]);
-    const router=useRouter();
-    
-    // const pathname = usePathname() //return url string
-    // const searchParams = useSearchParams() //used for like url/agents?agentId=xxxxx return xxxx
-    const params = useParams() //used for like url/about/[agentId] return {agentId:xxxx}
-    const agentId=params.agentId
+  // const pathname = usePathname() //return url string
+  // const searchParams = useSearchParams() //used for like url/agents?agentId=xxxxx return xxxx
+  const params = useParams(); //used for like url/about/[agentId] return {agentId:xxxx}
+  const agentId = params.agentId;
 
-    const getAgentDetails=async(agentId)=>
-    {
-        const response=await axios.get(`https://valorant-api.com/v1/agents/${agentId}` , {headers:{"Content-Type" : "application/json"} })
-        const agentData=response.data.data;
-        setAgent(agentData)
-        console.log(agentData)
-        console.log(agentData.background)
+  const getAgentDetails = async (agentId) => {
+    const response =  await axios.get(
+      `https://valorant-api.com/v1/agents/${agentId}`,
+      { headers: { "Content-Type": "application/json" } }
+    );
+    const agentData = response.data.data;
+    setAgent(agentData);
+    console.log(agentData);
+  };
 
-    }
-
-    useEffect(()=>
-    {
-        getAgentDetails(agentId);
-    },[]);
+  useEffect(() => {
+    getAgentDetails(agentId);
+  }, [agentId]);
 
   return (
-
     <>
-    <Head>
-        <title>Valorant - {agent.displayName}</title>
-    </Head>
-    <Navbar />
+      {agent && (
+        <main className="relative lg:py-16 min-h-screen  bg-[#0A141ECC] ">
+          <Head>
+            <title>Valorant - {agent.displayName}</title>
+          </Head>
 
+          <Navbar />
+          {/* from-[#c7f558] via-[#d56324] to-[#3A2656] */}
 
-      <main className="relative flex min-h-screen flex-col bg-[#0A141ECC] items-center justify-center">
+          <div
+            className={`md:bg-cover   bg-[url('/assets/images/agent_select.jpg')]  
+        relative mt-24 md:m-8 lg:m-12  h-60 overflow-hidden  px-20 py-52 `}
+          >
 
+            <div className="relative w-52 mb-5 flex flex-col bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+              <h2 className="text-6xl text-left text-white">{agent.displayName}</h2>
+            </div>
 
-        <section className=' w-full h-96 justify-center items-center overflow-hidden bg-white '>
-          {agent.background && (
-                <Image  fill={true} src={`${agent.background}`}  quality={100} className="relative w-full h-fulloverflow-hidden" alt="agent select" />
-          )};
-        </section>
-       
-      </main>
+            <div className="relative w-52 flex flex-col bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+              <h2 className="text-6xl text-left text-white">{agent.displayName}</h2>
+            </div>
 
+          </div>
+        </main>
+      )}
       <Footer />
-
-
-
-</>
-
-  )
-}
+    </>
+  );
+};
 
 export default AboutAgent;
