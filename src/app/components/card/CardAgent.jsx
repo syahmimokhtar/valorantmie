@@ -1,18 +1,13 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 
-const CardAgent = ({ roleIcon, imageSrc, fullPortraitSrc, agentName }) => {
-
-    const viewAgentDetail=()=>
-    {
-
-    }
+const CardAgent = ({ roleIcon, imageSrc, fullPortraitSrc, agentName , handleClick}) => {
 
     
+    
   return (
-    <div className="relative flex flex-col w-80 h-96 mx-auto mt-10 bg-[#0A141ECC]  border-2 border-[#ff4656] 
+    <div onClick={handleClick} className="relative flex flex-col w-80 h-96 mx-auto mt-10 bg-[#0A141ECC]  border-2 border-[#ff4656] 
      hover:border-[#ff4656]
      transition-transform duration-300 transform hover:-translate-y-2 hover:scale-105
      cursor-pointer 
@@ -35,7 +30,8 @@ const CardAgent = ({ roleIcon, imageSrc, fullPortraitSrc, agentName }) => {
         className="p-2 absolute w-full h-full object-cover transition-transform duration-300 transform hover:-translate-y-2 scale-110 overflow-hidden
          filter grayscale hover:grayscale-0"
         src={fullPortraitSrc}
-        fill
+        width={1000}
+        height={1000}
         alt="Agent"
       />
       <div className="relative text-center p-2 mx-auto w-full ">

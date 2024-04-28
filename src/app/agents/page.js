@@ -13,7 +13,8 @@ const AgentsCard = () => {
 
     const [agents, setAgents]=useState([]);
     const [loading, setLoading]=useState(false);
-
+    const router=useRouter();
+    
     const handleAgents=async()=>
     {   
       setLoading(true);
@@ -23,7 +24,7 @@ const AgentsCard = () => {
         const response =await axios.get(dataUrl, {headers:headers})
         const agentData=response.data.data;
         setAgents(agentData)
-        console.log(agentData);
+        // console.log(agentData);
 
       }catch(error)
       {
@@ -31,6 +32,11 @@ const AgentsCard = () => {
       }
       setLoading(false);
 
+    }
+
+    const viewAgentDetail=(id)=>
+    {
+      router.push(`/agents/about/${id}`)
     }
 
     useEffect(()=>
@@ -54,7 +60,8 @@ const AgentsCard = () => {
 
                 <div className="relative w-full h-full md:grid md:grid-cols-5 md:gap-3 mt-20 bg-[#0A141ECC] ">
                     {agents && (agents.map((agent) => (
-                        <CardAgent key={agent.uuid} roleIcon={agent.role.displayIcon} imageSrc={agent.background} fullPortraitSrc={agent.fullPortrait} agentName={`${agent.displayName} - ${agent.role.displayName}`} />
+                        <CardAgent key={agent.uuid} roleIcon={agent.role.displayIcon} imageSrc={agent.background} 
+                        fullPortraitSrc={agent.fullPortrait} agentName={`${agent.displayName} - ${agent.role.displayName}`} handleClick={()=>viewAgentDetail(agent.uuid) }/>
                     )))}
                 </div>
     
