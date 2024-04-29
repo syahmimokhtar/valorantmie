@@ -4,8 +4,7 @@ import Image from "next/image";
 
 const CardAgent = ({ roleIcon, imageSrc, fullPortraitSrc, agentName , handleClick}) => {
 
-    
-    
+  
   return (
     <div onClick={handleClick} className="relative flex flex-col w-80 h-96 mx-auto mt-10 bg-[#0A141ECC]  border-2 border-[#ff4656] 
      hover:border-[#ff4656]

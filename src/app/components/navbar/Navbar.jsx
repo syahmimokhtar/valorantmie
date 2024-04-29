@@ -58,7 +58,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed mx-auto top-0 left-0 right-0 z-10 bg-[#0A141ECC] bg-opacity-100">
+    <nav className="fixed mx-auto top-0 left-0 right-0 z-30 bg-[#0A141ECC] bg-opacity-100">
       <div className="flex container lg:py:4 flex-wrap items-center justify-between mx-auto px-5 py-5">
         <Link className="text-2xl md:text=5xl font-semibold" href={"/"}>
           <Image src='/assets/images/valorant.png' alt='valorant'  width={50}
