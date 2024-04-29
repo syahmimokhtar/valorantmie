@@ -33,7 +33,7 @@ const Agents = () => {
                   Each Agent is unique, just like the highlight moments of each match!</p>
                 
               </div>
-              <Button title={`View Agents Here`} handleClick={viewAgents}/>
+              <Button title={`View All Agents Here`} handleClick={viewAgents}/>
           </div>
 
       </div>
