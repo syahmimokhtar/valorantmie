@@ -54,11 +54,11 @@ const AgentsCard = () => {
         <Navbar />
 
 
-          <main className="relative flex min-h-screen flex-col bg-[#0A141ECC] items-center justify-center">
+          <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center">
               
                 <Image  priority={true} fill  src={`/assets/images/agent_select.jpg`}  className="overflow-hidden w-full h-full" alt="agent select" />
 
-                <div className="relative w-full h-full md:grid md:grid-cols-5 md:gap-3 mt-20 bg-[#0A141ECC] ">
+                <div className="relative w-full h-full md:grid md:grid-cols-5 md:gap-3 mt-20 bg-[#0A141E] ">
                     {agents && (agents.map((agent) => (
                         <CardAgent key={agent.uuid} roleIcon={agent.role.displayIcon} imageSrc={agent.background} 
                         fullPortraitSrc={agent.fullPortrait} agentName={`${agent.displayName} - ${agent.role.displayName}`} handleClick={()=>viewAgentDetail(agent.uuid) }/>

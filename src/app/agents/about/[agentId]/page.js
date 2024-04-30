@@ -41,7 +41,7 @@ const AboutAgent = () => {
   return (
     <>
       {agent && (
-        <main className="relative lg:py-16 min-h-screen  bg-[#0A141ECC] ">
+        <main className="relative lg:py-16 min-h-screen  bg-[#0A141E] ">
           <Head>
             <title>Valorant - {agent.displayName}</title>
           </Head>
@@ -73,7 +73,7 @@ const AboutAgent = () => {
 
           {/* DESCRIPTION */}
           <h2 className="text-5xl text-center font-normal ">DESCRIPTION</h2>
-          <div className={` bg-[#0A141ECC] mb-12 mt-20 md:m-12 lg:m-12  h-auto  p-20 justify-center items-center`}>
+          <div className={` bg-[#0A141E] mb-12 mt-20 md:m-12 lg:m-12  h-auto  p-20 justify-center items-center`}>
               <p className="text-5xl text-center font-normal">
                 {agent.description}
               </p>
@@ -85,7 +85,7 @@ const AboutAgent = () => {
           {/* AGENT SKILLS */}
           <h2 className="text-5xl text-center font-normal ">ABILITIES</h2>
           <div
-            className={`relative w-full h-full md:grid md:grid-cols-4 md:gap-1 mt-20 mb-10  bg-[#0A141ECC]
+            className={`relative w-full h-full md:grid md:grid-cols-4 md:gap-1 mt-20 mb-10  bg-[#0A141E]
                 `}
            > 
 

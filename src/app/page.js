@@ -9,7 +9,7 @@ import Footer from "./components/footer/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#0A141ECC]  items-center  ">
+    <main className="flex min-h-screen flex-col bg-[#0A141E]  items-center  ">
       <Head>
         <link priority={true} rel="icon" href="/favicon.ico" />
       </Head>
