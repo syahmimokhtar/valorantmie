@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-[#0A141ECC]  items-center  ">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link priority={true} rel="icon" href="/favicon.ico" />
       </Head>
 
       <Navbar />

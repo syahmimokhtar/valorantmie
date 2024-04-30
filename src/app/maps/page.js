@@ -7,6 +7,8 @@ import Footer from "../components/footer/Footer";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+
+
 const Maps = () => {
   const [map, setMap] = useState([]);
 
@@ -33,72 +35,78 @@ const Maps = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + map.length) % map.length);
   };
 
+
+
   
   return (
     <>
       <Head>
         <title>Valorant - Maps</title>
+       
       </Head>
       <Navbar />
 
       <main className="relative flex min-h-screen flex-col bg-[#0A141ECC] items-center justify-center">
-        <div className="relative w-full h-full mt-4 scale-100">
-            {/* {map &&
-                map.map((item, index) => (
-                  <div
-                    key={index}
-                    className="grid grid-cols-1  h-full items-center justify-center"
-                  >
-                    <img src={`${item.splash}`} alt={`${item.split}`} />
-                    <h2 className="relative text-2xl text-center font-normal">
-                      {item.displayName}
-                    </h2>
-                  </div>
-                ))} */}
-       
+        <div className=" mt-4 relative w-full h-full  ">
 
-             {/* carousel sliders */}
-             {/* <div className="carousel-inner w-full h-full relative"> */}
 
-            <div className=" carousel w-full h-full relative overflow-hidden">
+            { <div className="px-20 mt-28  carousel w-full min-h-screen">
                 {map &&  map.map((item, index) => (
-                <div  key={index} className={`object-fit carousel-item ${index === currentIndex ? 'visible' : 'hidden'}`}>
-                    <img
-                    src={`${item.splash}`} 
-                    className="w-full h-full opacity-50"
-                    />
+                <div  key={index} className={`h-full carousel-item ${index === currentIndex ? 'visible' : 'hidden'}`}>
 
-                    <div className="absolute flex flex-col h-96  md:top-80 md:left-24 items-center justify-center">
-                        <h2 className=" text-center  font-normal text-7xl md:text-8xl " >{item.displayName}</h2>
-                        {item.coordinates===null ? ( <h3 className=" text-center  font-normal text-4xl md:text-4xl mb-20 " >Not Available</h3>) : 
-                        ( <h3 className=" text-center  font-normal text-4xl md:text-4xl mb-20 " >{item.coordinates}</h3>)}
+                    <div className="relative w-full">
+                        <img src={`${item.splash}`} style={{width: '1920px', height: '1080px'}} className="opacity-30 h-52 w-full object-cover md:object-none" /> 
 
-                        <img
-                            src={`${item.displayIcon}`} 
-                            className="md:scale-100 w-96 h-full " alt={`${item.displayName}`}
-                         />
+                        <div className="absolute inset-0 flex flex-col items-center justify-center">
+                            <div className="container mx-auto">
+                              <h2 className="text-center font-normal text-7xl md:text-8xl">{item.displayName}</h2>
+                              {item.coordinates !== null && (
+                                <h2 className="text-center font-normal text-4xl md:text-4xl mb-20">{item.coordinates}</h2>
+                              )}
+                            </div>
+                          </div>
+                            
 
-                         <p className="p-10 md:text-2xl text-center font-normal">{item.narrativeDescription}</p>
+                      </div>
 
-                     </div>
-                  
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <button onClick={goToPreviousItem} className="btn btn-circle">
-                        ❮
-                        </button>
-                        <button onClick={goToNextItem} className="btn btn-circle">
-                        ❯
-                        </button>
-                    </div>
+                                      
+                      {/* <div className="container  md:mx-28  mx-4 absolute flex flex-col items-center justify-center px-20 py-20">
+                            <h2 className="text-center font-normal text-7xl md:text-8xl">{item.displayName}</h2>
+                            {item.coordinates !== null && (
+                                <h2 className="text-center font-normal text-4xl md:text-4xl mb-20">{item.coordinates}</h2>
+                            )}
+
+                          {item.displayIcon !== null && (
+                            <img src={`${item.displayIcon}`} className="relative w-96 h-96 mb-5" alt={`${item.displayName}`} />
+                            )}
+
+                           {item.narrativeDescription &&
+                           (<p className="container md:text-3xl text-center font-normal">{item.narrativeDescription}</p>)
+                          } 
+                      </div>  
+                   */}
+
+
                 </div>
                     ))}
+              </div> }
+
+
+
+
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <button onClick={goToPreviousItem} className="btn btn-circle ">
+                    ❮
+                    </button>
+                    <button onClick={goToNextItem} className="btn btn-circle ">
+                    ❯
+                    </button>
             </div>
 
 
-            {/* carousel indicators */}
-            <div className="flex justify-center w-full py-2 gap-2">
-                
-            </div>
+ 
+
+          
 
 
         </div>
