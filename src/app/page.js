@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       <Navbar />
-      <div className="container mx-auto ">
+      <div className="relative">
         <CarouselMisc />
         <Season />
         <Bundle />
