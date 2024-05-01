@@ -69,9 +69,9 @@ const Maps = () => {
 
                       )}
 
-                      {item.narrativeDescription && ( 
+                      {item.tacticalDescription && ( 
                         <div className="md:container md:mx-auto flex flex-col sm:m-5 px-5 py-5 bg-black w-96 bg-opacity-40">
-                            <p className="md:text-3xl  md:text-center sm:text-left text-xl  font-normal  ">{item.narrativeDescription}</p>
+                            <p className="md:text-3xl  md:text-center sm:text-left text-xl  font-normal  ">{item.tacticalDescription}</p>
                         </div>
                           ) } 
 
