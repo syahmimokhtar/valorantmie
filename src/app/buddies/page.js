@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import CardAgent from "../components/card/CardAgent";
-import Button from "../components/button/Button";
+import Input from "../components/input/Input";
 
 import axios from 'axios';
 
@@ -42,8 +42,6 @@ const Buddies = () => {
         );
       };
 
-
-      // In the useEffect hook
       useEffect(() => {
         setFilteredBuddies(filterItems(searchQuery, buddies));
       }, [searchQuery, buddies]);
@@ -109,19 +107,15 @@ const Buddies = () => {
 
             <div className=" w-full h-full relative px-12 py-12 overflow-auto mt-12 mb-20 justify-center items-center">
 
+               
 
-                    {/* Search input field */}
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={e => setSearchQuery(e.target.value)}
-                      placeholder="Search Buddy..."
-                      className="container grid grid-cols-1 mx-auto mt-24 -mb-12 p-4   rounded border"
-                    />
+                    <Input  placeholder="Search buddies here..."
+                    type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
+                     className="container md:mx-20 mt-24 -mb-12 p-4   rounded border" />
                     
                     <div className="md:grid md:grid-cols-5 grid  gap-2 -mx-4 px-4 py-20">
                               
-                    {searchQuery ? (
+                    {filteredBuddies.length>0 ? (
                                 filteredBuddies.map((buddy, index) => (
                                   <CardAgent key={index}>
                                     <img src={buddy.displayIcon}  alt={buddy.displayName} className="w-full h-auto " />

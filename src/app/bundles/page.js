@@ -5,13 +5,32 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import CardAgent from "../components/card/CardAgent";
 import Modal from "../components/modal/Modal";
+import Input from "../components/input/Input";
+
 import axios from 'axios';
 
 const Bundles = () => {
 
-    const [bundles, setBundles]=useState();
+    const [bundles, setBundles]=useState([]);
     const [isOpen,setIsOpen]=useState(false);
     const[modalData, setModalData]=useState({});
+    const [searchQuery, setSearchQuery]=useState("");
+    const [filteredBundles, setFilteredBundles]=useState([] );
+
+    const filterItems=(query,items)=>{
+      const queryString= query? query.toString().toLowerCase():'';
+      return items.filter(item =>
+        item && item.displayName && item.displayName.toLowerCase().includes(queryString)
+      )
+    }
+
+    useEffect(()=>
+    {
+      console.log("searchQuery:", searchQuery);
+      console.log("bundles:", bundles);
+      console.log("filteredBundles:", filteredBundles);
+      setFilteredBundles(filterItems(searchQuery,bundles))
+    },[searchQuery, bundles])
 
     const openModal=(data)=>
     {
@@ -63,23 +82,44 @@ const Bundles = () => {
 
     <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center ">
        
-        {<div className="absolute w-full h-full overflow-auto opacity-30 " >
+        <div className="absolute w-full h-full overflow-auto opacity-30 " >
                 <img src={`/assets/images/bundles.jpg`}  style={{width:'1980px', height:'1080px'}} className="object-cover overflow-auto " alt="buddies" />
-        </div> }
+        </div> 
+
+        <div className="w-full h-full container mx-auto ">
+          <Input  placeholder="Search bundles here..."
+            type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
+              className="w-80  md:w-full relative md:mx-20 mt-32  p-4  rounded border" />
+        </div>
+      
 
 
         <div className=" w-full h-full relative  px-12 py-12  mt-12 mb-20 justify-center items-center">
             <div className="md:grid md:grid-cols-5 grid  gap-2 -mx-4 px-4 py-20">
-                        { bundles && bundles.map((item, index) => 
-                            (
-                                <CardAgent key={index} handleClick={()=>openModal(item)}>
-                                <img src={item.displayIcon}  alt={item.displayName} className="object-cover w-full h-full" />
-                                <p className="text-center text-2xl mt-2">{item.displayName}</p>
-                            </CardAgent>
-                            )
-                        )}
-
-
+              
+            {filteredBundles.length > 0 ? 
+                (   filteredBundles.map((item, index) => 
+                  (
+                      <CardAgent key={index} handleClick={()=>openModal(item)}>
+                      <img src={item.displayIcon}  alt={item.displayName} className="object-cover w-full h-full" />
+                      <p className="text-center text-2xl mt-2">{item.displayName}</p>
+                  </CardAgent>
+                  )
+                )
+                ) :
+              (
+                
+                 bundles && bundles.map((item, index) => 
+                  (
+                      <CardAgent key={index} handleClick={()=>openModal(item)}>
+                      <img src={item.displayIcon}  alt={item.displayName} className="object-cover w-full h-full" />
+                      <p className="text-center text-2xl mt-2">{item.displayName}</p>
+                  </CardAgent>
+                  )
+                )
+              ) 
+                     
+              }
             </div>
         </div>
 
