@@ -78,19 +78,17 @@ const Bundles = () => {
 
     <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center ">
        
-        <div className="absolute w-full h-full overflow-auto opacity-30 " >
+        <div className="absolute w-full h-full opacity-30 " >
                 <img src={`/assets/images/bundles.jpg`}  style={{width:'1980px', height:'1080px'}} className="object-cover overflow-auto " alt="buddies" />
         </div> 
 
-        <div className="w-full h-full container mx-auto ">
-          <Input  placeholder="Search bundles here..."
-            type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
-              className="w-80  md:w-full relative md:mx-20 mt-32  p-4  rounded border" />
-        </div>
-      
-
-
         <div className=" w-full h-full relative  px-12 py-12  mt-12 mb-20 justify-center items-center">
+
+        <Input  placeholder="Search bundles here..."
+                    type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
+                    className="container md:mx-20 mt-4 -mb-12 p-4   rounded border" />
+                    
+
             <div className="md:grid md:grid-cols-5 grid  gap-2 -mx-4 px-4 py-20">
               
             {filteredBundles.length > 0 ? 
