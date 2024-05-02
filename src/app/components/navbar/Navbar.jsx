@@ -42,7 +42,7 @@ const Navbar = () => {
     },
     {
       label: "Weapons",
-      href: "/weapons/list",
+      href: "/weapons",
       color: "#ff4656",
     },
     {
