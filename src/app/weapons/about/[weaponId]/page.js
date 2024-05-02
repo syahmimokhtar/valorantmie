@@ -22,7 +22,6 @@ const AboutWeapons = () => {
           const response = await axios.get(dataUrl, { headers: headers });
           const weaponsData = response.data.data.skins;
           setWeapons(weaponsData);
-          console.log(weaponsData)
         } catch (error) {
           console.log("error", error);
         }

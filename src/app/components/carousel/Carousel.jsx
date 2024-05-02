@@ -18,7 +18,7 @@ const Carousel = ({items, children}) => {
 
   return (
     <>
-      <div className="px-20 mt-28 carousel w-full min-h-screen">
+      <div className="px-20 mt-auto carousel w-full min-h-screen">
         {items.map((item, index) => (
           <div key={index} 
           className={`h-full carousel-wrapper flex transition-transform duration-500 ease-in-out  carousel-item ${index === currentIndex ? 'visible' : 'hidden'}`}>

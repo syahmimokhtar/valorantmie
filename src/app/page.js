@@ -9,12 +9,15 @@ import Footer from "./components/footer/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#0A141E]  items-center  ">
+    <>
+    
       <Head>
         <link  rel="icon" href="/favicon.ico" />
       </Head>
-
       <Navbar />
+    
+    <main className="flex min-h-screen flex-col bg-[#0A141E]  items-center  ">
+      
       <div className="relative">
         <CarouselMisc />
         <Season />
@@ -24,5 +27,7 @@ export default function Home() {
 
       <Footer />
     </main>
+    </>
+
   );
 }

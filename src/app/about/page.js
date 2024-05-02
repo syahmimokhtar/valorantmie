@@ -26,16 +26,26 @@ const AboutMe = () => {
                     <div className="flex flex-col  my-auto mx-auto relative w-full h-full ">
                         <img style={{width:'400px' , height:'400px'}}className=' rounded-full mb-10  container mx-auto border-2 border-white w-80 h-full' src="/assets/images/dp.jpg" />
                         <h2 className='relative text-6xl font-normal text-center whitespace-nowrap'>Syahmi Mokhtar</h2>
-                        <h2 className='relative text-3xl font-normal text-center whitespace-nowrap '>Front End Developer</h2>
+                        <h2 className='relative text-3xl font-normal text-center whitespace-nowrap mb-5'>Front End Developer</h2>
 
                         <div className=" relative  mx-auto flex flex-row gap-2">
                           <Link target="_blank" href="https://github.com/syahmimokhtar">
                             <img src="/assets/images/github-icon.svg" alt="Github Icon" />
                           </Link>
-                          
+                          <p className="mt-2">github</p>
+
                           <Link target="_blank" href="https://www.linkedin.com/in/muhammad-syahmi-118458189/">
                           <img src="/assets/images/linkedin-icon.svg" alt="Linkedin Icon" />
+                          
                           </Link>
+                          <p className="mt-2">LinkedIn</p>
+
+
+                          <Link target="_blank" href="https://mie-portfolio.vercel.app/">
+                            <img className='text-center w-11' src="/assets/images/briefcase.svg" alt="My portfolio" />
+                            </Link>
+                            <p className="mt-2">My Portfolio</p>
+
                         </div>
 
                     </div>

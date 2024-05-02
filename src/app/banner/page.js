@@ -13,7 +13,7 @@ const Banner = () => {
   return (
     <>
       <Head>
-        <title>Valorant - Weapons</title>
+        <title>Valorant - Banner</title>
       </Head>
       <Navbar />
 

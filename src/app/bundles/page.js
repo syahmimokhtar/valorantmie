@@ -26,9 +26,6 @@ const Bundles = () => {
 
     useEffect(()=>
     {
-      console.log("searchQuery:", searchQuery);
-      console.log("bundles:", bundles);
-      console.log("filteredBundles:", filteredBundles);
       setFilteredBundles(filterItems(searchQuery,bundles))
     },[searchQuery, bundles])
 
@@ -53,7 +50,6 @@ const Bundles = () => {
         const response =await axios.get(dataUrl, {headers:headers})
         const bundlesData=response.data.data.sort();
         setBundles(bundlesData)
-        console.log(bundlesData)
 
       }catch(error)
       {

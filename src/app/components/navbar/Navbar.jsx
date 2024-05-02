@@ -9,8 +9,6 @@ import MenuOverlay from "./MenuOverlay";
 import Image from 'next/image'
 
 const Navbar = () => {
-  const router = useRouter();
-  const pathname = usePathname();
 
   const [navbarOpen, setnavbarOpen] = useState(false);
 
@@ -58,10 +56,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed mx-auto top-0 left-0 right-0 z-30 bg-[#0A141E] bg-opacity-100">
-      <div className="flex container lg:py:4 flex-wrap items-center justify-between mx-auto px-5 py-5">
+    <nav className="md:px-60 w-full h-full bg-[#0A141E] bg-opacity-100">
+      <div className="flex container lg:py:4 flex-wrap items-center justify-between px-5 py-5">
         <Link className="text-2xl md:text=5xl font-semibold" href={"/"}>
-          <Image src='/assets/images/valorant.png' alt='valorant'  width={50}
+          <Image priority={true} src='/assets/images/valorant.png' alt='valorant'  width={50}
               height={50} className='relative rounded-full' />
         </Link>
 

@@ -7,7 +7,6 @@ import Footer from "../components/footer/Footer";
 import axios from "axios";
 
 
-
 const Maps = () => {
   const [map, setMap] = useState([]);
 
@@ -46,7 +45,7 @@ const Maps = () => {
        
       </Head>
       <Navbar />
-
+      {map && 
       <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center">
         <div className=" mt-4 relative w-full h-full  ">
 
@@ -141,7 +140,7 @@ const Maps = () => {
 
         </div>
       </main>
-
+      }
       <Footer />
     </>
   );

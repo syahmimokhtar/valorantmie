@@ -48,8 +48,6 @@ const Buddies = () => {
 
 
 
-
-
     const handleBuddies=async()=>
     {   
       try{
@@ -57,9 +55,7 @@ const Buddies = () => {
         const dataUrl=`https://valorant-api.com/v1/buddies`;
         const response =await axios.get(dataUrl, {headers:headers})
         const buddiesData=response.data.data.sort();
-        console.log(buddiesData)
         setBuddies(buddiesData)
-        console.log(buddiesData);
 
       }catch(error)
       {
@@ -98,16 +94,14 @@ const Buddies = () => {
         <Navbar />
 
 
-
+      {buddies && 
         <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center ">
            
             <div className="absolute w-full h-full overflow-auto opacity-30 " >
                     <img src={`/assets/images/buddies.jpg`}  style={{width:'1980px', height:'2000px'}} className="object-cover   overflow-auto " alt="buddies" />
             </div>
 
-            <div className=" w-full h-full relative px-12 py-12 overflow-auto mt-12 mb-20 justify-center items-center">
-
-               
+            <div className=" w-full h-full relative px-12 py-12 mb-20 justify-center items-center">
 
                     <Input  placeholder="Search buddies here..."
                     type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
@@ -147,7 +141,7 @@ const Buddies = () => {
 
                
         </main>
-
+      }
         <Footer />
 
 
