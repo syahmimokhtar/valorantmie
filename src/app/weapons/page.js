@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
-import CardAgent from "../components/card/CardAgent";
+import CardWeapon from "../components/card/CardWeapon";
 import axios from "axios";
 import {useRouter} from "next/navigation";
 
@@ -53,19 +53,19 @@ const Weapon = () => {
         </div>
 
         <div className=" w-full h-full relative  px-12 py-12  mt-12 mb-20 justify-center items-center">
-          <div className="md:grid md:grid-cols-4 grid  gap-2 ">
+          <div className="md:grid md:grid-cols-4 grid  gap-4 ">
             {weapons &&
               weapons.map((item, index) => (
-                <CardAgent key={index} handleClick={()=>viewWeaponDetails(item.uuid)}>
+                
+                <CardWeapon key={index} handleClick={()=>viewWeaponDetails(item.uuid)} 
+                  displayName={item.displayName}>
                   <img
                     src={item.displayIcon}
                     alt={item.displayName}
-                    className="object-fit w-auto h-auto"
+                    className="object-fit w-full h-full"
                   />
-                  <h2 className="text-center text-4xl mt-2">
-                    {item.displayName}
-                  </h2>
-                </CardAgent>
+                 
+                </CardWeapon>
               ))}
           </div>
         </div>
