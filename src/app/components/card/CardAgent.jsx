@@ -8,7 +8,7 @@ const CardAgent = ({ handleClick, children}) => {
      hover:border-[#ff4656]
      transition-transform duration-300 transform hover:-translate-y-2 hover:scale-105
      cursor-pointer 
-     rounded-xl  justify-center items-center">
+       justify-center items-center">
      {children}
     </div>
   );

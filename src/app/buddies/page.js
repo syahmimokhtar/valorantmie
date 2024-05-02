@@ -24,12 +24,33 @@ const Buddies = () => {
 
   //     return value;
   // };
-    const [buddies, setBuddies]=useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
+
+  
     // const itemsPerPage = 12; // Number of buddies to display per page
    // const itemsPerPage = useMedia('(min-width: 768px)', 12, 6); // Adjust the number of items per page based on screen width
+    // const [currentPage, setCurrentPage] = useState(1);
 
-   
+    const [buddies, setBuddies]=useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredBuddies, setFilteredBuddies] = useState([]);
+
+        // Define filterItems function
+      const filterItems = (query, items) => {
+        const queryString = query ? query.toString().toLowerCase() : '';
+        return items.filter(item => 
+           item && item.displayName && item.displayName.toLowerCase().includes(queryString)
+        );
+      };
+
+
+      // In the useEffect hook
+      useEffect(() => {
+        setFilteredBuddies(filterItems(searchQuery, buddies));
+      }, [searchQuery, buddies]);
+
+
+
+
 
     const handleBuddies=async()=>
     {   
@@ -82,19 +103,41 @@ const Buddies = () => {
 
         <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center ">
            
-            <div className="relative w-full h-full overflow-auto opacity-30 " >
-                    <img src={`/assets/images/buddies.jpg`}  style={{width:'1980px', height:'2000px'}} className="object-fit overflow-auto " alt="buddies" />
+            <div className="absolute w-full h-full overflow-auto opacity-30 " >
+                    <img src={`/assets/images/buddies.jpg`}  style={{width:'1980px', height:'2000px'}} className="object-cover   overflow-auto " alt="buddies" />
             </div>
 
-            <div className=" w-full h-full absolute px-12 py-12 overflow-auto mt-12 mb-20 justify-center items-center">
+            <div className=" w-full h-full relative px-12 py-12 overflow-auto mt-12 mb-20 justify-center items-center">
+
+
+                    {/* Search input field */}
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={e => setSearchQuery(e.target.value)}
+                      placeholder="Search Buddy..."
+                      className="container grid grid-cols-1 mx-auto mt-24 -mb-12 p-4   rounded border"
+                    />
+                    
                     <div className="md:grid md:grid-cols-5 grid  gap-2 -mx-4 px-4 py-20">
-                                {buddies.map((buddy, index) => (
+                              
+                    {searchQuery ? (
+                                filteredBuddies.map((buddy, index) => (
                                   <CardAgent key={index}>
-                                      <img src={buddy.displayIcon} alt={buddy.displayName} className="w-full h-auto" />
-                                       <p className="text-center text-2xl mt-2">{buddy.displayName}</p>
+                                    <img src={buddy.displayIcon}  alt={buddy.displayName} className="w-full h-auto " />
+                                    <p className="text-center text-2xl mt-2">{buddy.displayName}</p>
                                   </CardAgent>
-                                 
-                                ))}
+                                ))
+                              ) : (
+                                buddies.map((buddy, index) => (
+                                  <CardAgent key={index}>
+                                    <img src={buddy.displayIcon}  style={{width:'1980px', height:'1080px'}} alt={buddy.displayName} className="w-full h-auto" />
+                                    <p className="text-center text-2xl mt-2">{buddy.displayName}</p>
+                                  </CardAgent>
+                                ))
+                              )}
+                              
+
                      </div>
 
 
