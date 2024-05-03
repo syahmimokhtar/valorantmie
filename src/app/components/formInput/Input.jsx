@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({searchQuery, handleChange, placeholder, ...otherProps}) => {
+const Input = ({handleChange, searchQuery,  placeholder, ...otherProps}) => {
   return (
             <input
             type="text"

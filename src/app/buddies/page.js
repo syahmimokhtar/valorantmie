@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import CardAgent from "../components/card/CardAgent";
-import Input from "../components/input/Input";
+import Input from "../components/formInput/Input";
 
 import axios from 'axios';
 

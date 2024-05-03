@@ -5,7 +5,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import CardAgent from "../components/card/CardAgent";
 import Modal from "../components/modal/Modal";
-import Input from "../components/input/Input";
+import Input from "../components/formInput/Input";
 
 import axios from 'axios';
 
@@ -79,7 +79,7 @@ const Bundles = () => {
     <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center ">
        
         <div className="absolute w-full h-full opacity-30 " >
-                <img src={`/assets/images/bundles.jpg`}  style={{width:'1980px', height:'1080px'}} className="object-cover overflow-auto " alt="buddies" />
+                <img src={`/assets/images/bundles.jpg`}  style={{width:'1980px', height:'1080px'}} className="object-cover " alt="buddies" />
         </div> 
 
         <div className=" w-full h-full relative  px-12 py-12  mt-12 mb-20 justify-center items-center">

@@ -1,8 +1,15 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import {useRouter} from 'next/navigation';
+
+
 import Button from "../button/Button";
+
 const Bundle = () => {
+
+  const router=useRouter();
+
+
   return (
     <section className="flex relative w-full h-full justify-center items-center ">
         
@@ -16,7 +23,7 @@ const Bundle = () => {
               <h3 className="text-[white] text-center font-normal text-7xl  whitespace-nowrap mb-5 ">
                 GUN BUDDIES
               </h3>
-              <Button title={`Look More Buddies `} />
+              <Button title={`Look More Buddies `} handleClick={()=>router.push(`/buddies`)} />
             </div>
           </div>
         </div>
@@ -31,7 +38,7 @@ const Bundle = () => {
               <h3 className="text-[white] text-center font-normal text-7xl  whitespace-nowrap mb-5 ">
                 WEAPON SKINS
               </h3>
-              <Button title={`View Weapons `} />
+              <Button title={`View Weapons `} handleClick={()=>router.push(`/weapons`)} />
             </div>
           </div>
 
