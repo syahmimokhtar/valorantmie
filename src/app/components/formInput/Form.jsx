@@ -2,7 +2,7 @@ import React from 'react'
 
 const Form = ({children, ...otherProps}) => {
   return (
-    <div {...otherProps} className='p-12 relative w-full h-full border-2 border-red-500 bg-[#0A141E] '>
+    <div {...otherProps} className='p-12 relative w-full h-full  bg-[#0A141E] '>
         {children}
     </div>
   )

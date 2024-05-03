@@ -10,7 +10,21 @@ import ButtonForm from "../components/formInput/ButtonForm";
 import Modal from "../components/modal/Modal";
 
 const Banner = () => {
-  
+
+  const [isBannerModalOpen, setIsBannerModalOpen] = useState(false);
+  const [isRankModalOpen, setIsRankModalOpen] = useState(false);
+  const [isWallpaperModalOpen, setIsWallpaperModalOpen] = useState(false);
+
+  const openBannerModal = () => setIsBannerModalOpen(true);
+  const closeBannerModal = () => setIsBannerModalOpen(false);
+
+  const openRankModal = () => setIsRankModalOpen(true);
+  const closeRankModal = () => setIsRankModalOpen(false);
+
+  const openWallpaperModal = () => setIsWallpaperModalOpen(true);
+  const closeWallpaperModal = () => setIsWallpaperModalOpen(false);
+
+
 
   return (
     <>
@@ -45,14 +59,18 @@ const Banner = () => {
                               <option value="option3">Option 3</option>
                           </Dropdown >
 
-                        <ButtonForm title={`Select banner`} className="mt-12  mb-5"  />
-                        <ButtonForm title={`Select rank`} className="mt-12  mb-5"  />
-                        <ButtonForm title={`Select wallpaper`} className="mt-12  mb-5"  />
+                        <ButtonForm handleClick={()=> openBannerModal() } title={`Select banner`} className="mt-12  mb-5"  />
+                        <ButtonForm handleClick={()=> openRankModal() } title={`Select rank`} className="mt-12  mb-5"  />
+                        <ButtonForm handleClick={()=> openWallpaperModal() } title={`Select wallpaper`} className="mt-12  mb-5"  />
 
                     </Form>
 
               </div>
-              
+
+              {isBannerModalOpen && <Modal isOpen={isBannerModalOpen}  modalTitle={`Select banner`}  onClose={closeBannerModal} />}
+              {isRankModalOpen && <Modal isOpen={isRankModalOpen}  modalTitle={`Select rank`}  onClose={closeRankModal} />}
+              {isWallpaperModalOpen && <Modal isOpen={isWallpaperModalOpen}  modalTitle={`Select wallpaper`}  onClose={closeWallpaperModal} />}
+
         </div>
          
       </main>
