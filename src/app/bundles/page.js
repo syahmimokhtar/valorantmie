@@ -132,10 +132,6 @@ const Bundles = () => {
       )}
 
         
-        
-          {/*               imageSrc={modalData.displayIcon}
-
-      modalBody={<img src={`${modalData.displayIcon}`} className='cursor-pointer object-cover w-full h-full' alt={`${modalData.displayName} `}  />} */}
 
     </main>
 
