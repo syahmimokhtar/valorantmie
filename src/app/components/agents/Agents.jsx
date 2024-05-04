@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Button from "../button/Button";
+import ButtonForm from "../formInput/ButtonForm";
 import { useRouter } from "next/navigation";
 
 const Agents = () => {
@@ -32,7 +32,7 @@ const Agents = () => {
                   Each Agent is unique, just like the highlight moments of each match!</p>
                 
               </div>
-              <Button title={`View All Agents Here`} handleClick={viewAgents}/>
+              <ButtonForm title={`View All Agents Here`} handleClick={viewAgents}/>
           </div>
 
       </div>

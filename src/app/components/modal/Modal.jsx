@@ -1,37 +1,36 @@
     import React  from 'react'
-    import Button from '../button/Button';
+    import ButtonForm from '../formInput/ButtonForm';
 
-    const Modal = ({ isOpen, onClose, modalTitle , imageSrc }) => {
+    const Modal = ({ isOpen, onClose, modalTitle , modalBody , ...otherProps }) => {
 
     return (
             <>
                 {isOpen && (
-                <div   className=" container mx-auto flex flex-col fixed  bottom-72  md:w-52 md:h-52 p-4    justify-center items-center">
-                    <div className="bg-[#0A141E] md:p-8  p-4 shadow-lg flex flex-col  border-2 border-[#ff4656] ">
+                <div   className=" m-12 container flex flex-col fixed px-0  py-4 top-40  bottom-12  md:w-2/3 md:h-full    justify-center items-center"  {...otherProps}>
+                        <div className="bg-[#0A141E]   p-4 md:p-8 md:w-3/4  w-full h-full flex flex-col  "> 
 
-                       <button onClick={onClose} className="absolute -top-40  -right-56  hover:text-gray-800">
-                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                            </svg>
+                            <button onClick={onClose} className="absolute md:-top-40    md:-right-56  hover:text-gray-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                            </button>
 
-                        </button>
+                            <div className="modal-header whitespace-normal">
+                                <h2 className="text-4xl text-center font-normal mb-4 ">{modalTitle}</h2>
+                            </div>
 
-                        <div className="modal-header whitespace-normal ">
-                            <h2 className="text-4xl text-center font-normal mb-4 ">{modalTitle}</h2>
-                         </div>
+                            <div className="modal-body px-4 py-4 overflow-auto w-full h-full ">
+                                {/* <img src={`${imageSrc}`} className='cursor-pointer object-cover md:w-full w-96 h-full' alt={`${modalTitle} `}  /> */}
+                                {modalBody}
+                            </div>
 
 
-                         
-                         <div className="modal-body  overflow-auto w-full h-full border-2 border-[#ff4656] mb-12">
-                            <img src={imageSrc} className='cursor-pointer object-cover  w-full  h-full ' alt={modalTitle}/>  
-                         </div>
+                            <div className="py-4 modal-footer items-center justify-center md:mx-60  mx-20 ">
+                                <ButtonForm   handleClick={onClose} title="Close"/>
+                            </div>
+                        </div>
+                </div>                    
 
-                         <div className="modal-footer items-center justify-center md:mx-60  mx-20 ">
-                             <Button   handleClick={onClose} title="Close"/>
-                         </div>
-
-                    </div>
-                </div>
                 )}
             </>
 

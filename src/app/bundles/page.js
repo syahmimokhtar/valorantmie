@@ -64,6 +64,11 @@ const Bundles = () => {
         handleBundles();
     }, []);
 
+    const handleInputChange=(e)=>
+      {
+        console.log(e.target.value)
+        setSearchQuery(e.target.value)
+      }
 
 
   return (
@@ -76,24 +81,23 @@ const Bundles = () => {
 
 
 
-    <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center ">
+    <main className="relative flex  flex-col min-h-screen bg-[#0A141E] items-center justify-center ">
        
         <div className="absolute w-full h-full opacity-30 " >
                 <img src={`/assets/images/bundles.jpg`}  style={{width:'1980px', height:'1080px'}} className="object-cover " alt="buddies" />
         </div> 
 
-        <div className=" w-full h-full relative  px-12 py-12  mt-12 mb-20 justify-center items-center">
-
-        <Input  placeholder="Search bundles here..."
-                    type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
-                    className="container md:mx-20 mt-4 -mb-12 p-4   rounded border" />
+        <div className="w-full h-full relative mt-12 mb-20 justify-center items-center">
+                  <Input  placeholder="Search bundles here..."
+                    type="text" value={searchQuery} handleChange={handleInputChange}
+                    className="md:w-full w-80 container px-4 py-4 md:mx-20 mx-12 mt-4 -mb-12  rounded border" />
                     
 
-            <div className="md:grid md:grid-cols-5 grid  gap-2 -mx-4 px-4 py-20">
+            <div className="md:grid md:grid-cols-5 grid gap-2 ">
               
             {filteredBundles.length > 0 ? 
                 (   filteredBundles.map((item, index) => 
-                  (
+                  ( 
                       <CardAgent key={index} handleClick={()=>openModal(item)}>
                       <img src={item.displayIcon}  alt={item.displayName} className="object-cover w-full h-full" />
                       <p className="text-center text-2xl mt-2">{item.displayName}</p>
@@ -117,7 +121,21 @@ const Bundles = () => {
             </div>
         </div>
 
-        {isOpen && <Modal isOpen={isOpen} onClose={closeModal} modalTitle={modalData.displayName} imageSrc={modalData.displayIcon} />}
+    
+        {isOpen && (
+        <Modal
+          isOpen={isOpen}
+          onClose={closeModal}
+          modalTitle={modalData.displayName}
+          modalBody={<img src={`${modalData.displayIcon}`} className='cursor-pointer object-cover w-full h-full' alt={`${modalData.displayName}`} />} 
+        />
+      )}
+
+        
+        
+          {/*               imageSrc={modalData.displayIcon}
+
+      modalBody={<img src={`${modalData.displayIcon}`} className='cursor-pointer object-cover w-full h-full' alt={`${modalData.displayName} `}  />} */}
 
     </main>
 
