@@ -28,11 +28,14 @@ const Banner = () => {
 
 
   const [wallpaper, setWallPapers]=useState([]);
+  const [banner, setBanners]=useState([]);
+  const [setBanner, setBannerSelection]=useState('');
+
   const [selectedWallpaper, setSelectedWallpaper]=useState(null);
   const [selectedPlayerTitle, setSelectedPlayerTitle]=useState(null);
+
   const [ranks, setRanks]=useState([]);
   const [setRank, setSelectedRank]=useState('');
-
 
   const [nickname, setNickname]=useState("");
   const [playerTitle, setPlayerTitle]=useState("");
@@ -48,6 +51,20 @@ const Banner = () => {
 
     }
 
+  const handleBanners=async()=>
+    {
+      const headers={'Content-Type' : 'application/json'}
+      const response=await axios.get(`https://valorant-api.com/v1/playercards`, {headers:headers} )
+      const banners=response.data.data;
+      setBanners(banners);
+    }
+
+    const handleBannerSelection=(banner)=>
+    {
+      setBannerSelection(banner);
+    }
+
+
     const handleRankSelection=(rank)=>{
       setSelectedRank(rank)
     }
@@ -59,7 +76,6 @@ const Banner = () => {
         const ranksResponse=response.data.data[response.data.data.length-1].tiers;
         const cleanedRanks=ranksResponse.filter(item=>item.tierName!=='Unused1' && item.tierName!=='Unused2')
         setRanks(cleanedRanks);
-        console.log(ranksResponse)
 
       }
 
@@ -91,6 +107,7 @@ const Banner = () => {
       handleWallPapers();
       handlePlayerTitles();
       handleRanks();
+      handleBanners();
 
     },[])
 
@@ -120,12 +137,20 @@ const Banner = () => {
         <div className='md:grid md:grid-cols-2 container mx-auto  relative h-full w-full justify-center items-center'>
 
               <div className="container mx-auto relative w-80 h-80 bottom-2/3">
-                <img className="object-cover" src='/assets/images/bannerGenerator/valoCard.png' />
-                <p className='md:bottom-72 relative text-black text-center font-normal'>{nickname ? nickname : 'your card title'} </p>
-                <p className='md:bottom-72 mt-2 relative text-white text-center font-normal'>{playerTitle ? playerTitle : 'player title'}</p>
-                <img className='object-fit w-12 h-12 md:bottom-52 md:left-16 relative' 
+                 <img className=" object-fill" src='/assets/images/bannerGenerator/valoCard.png' />
+                  <p className='md:bottom-72 relative text-black text-center font-normal'>{nickname ? nickname : 'your card title'} </p>
+                  <p className='md:bottom-72 mt-2 relative text-white text-center font-normal'>{playerTitle ? playerTitle : 'player title'}</p>
+                    <img className='object-fit  w-12 h-12 md:bottom-52 md:left-16 relative' 
                   src={setRank ? (setRank) : null}
                   alt={`Selected Rank`} />
+
+
+                  <div id='banner' className=' mix-blend-lighten  absolute flex flex-col  top-0 bottom-12 bg-white w-full h-full px-4 z-n1 '>
+                      <img  style={{width:'1200px' , height:'600px'}} className='relative object-fill w-96 h-96  md:left-0 ' 
+                        src={setBanner ? (setBanner) : null}
+                        alt={`Selected Banner`} />
+                  </div>
+
               </div>
 
 
@@ -154,9 +179,29 @@ const Banner = () => {
         </div>
          
         
-
-               {isBannerModalOpen && <Modal isOpen={isBannerModalOpen}  modalTitle={`Select Banner`}  onClose={closeBannerModal} />}
                 
+              {isBannerModalOpen && 
+              <Modal isOpen={isBannerModalOpen} 
+                modalTitle={`Select Banner`}  
+                onClose={closeBannerModal} 
+                modalBody={
+                  <div className=" bg-yellow relative grid grid-cols-8 gap-4">
+                    {banner.map((item, index) => (
+                      <img
+                        key={index}
+                        src={item.smallArt}
+                        alt={`Wallpaper ${index}`}
+                        className="hover:border-2 hover:border-white cursor-pointer object-cover w-full h-full"
+                        onClick={()=>handleBannerSelection(item.largeArt)}
+                      />
+                    ))}
+                  </div>
+                }
+                
+                />
+               
+              }
+
 
                {isRankModalOpen && 
               <Modal isOpen={isRankModalOpen} 
