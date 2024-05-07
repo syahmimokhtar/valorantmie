@@ -6,7 +6,7 @@
     return (
             <>
                 {isOpen && (
-                <div   className="  absolute container flex flex-col  p-20 -top-4  bottom-12  md:w-2/3 md:h-full    justify-center items-center"  {...otherProps}>
+                <div   className="z-50 absolute container flex flex-col  p-20 -top-4  bottom-12  md:w-2/3 md:h-full    justify-center items-center"  {...otherProps}>
                         <div className="bg-[#0A141E]  p-12 md:p-8 md:w-3/4   w-full h-full flex flex-col  "> 
                             <div className="modal-header whitespace-normal">
                                     <button onClick={onClose} className="absolute md:top-16    md:right-48  hover:text-gray-800">

@@ -61,6 +61,7 @@ const Banner = () => {
 
     const handleBannerSelection=(banner)=>
     {
+
       setBannerSelection(banner);
     }
 
@@ -86,7 +87,8 @@ const Banner = () => {
 
     const handleNickname=(e)=>
       {
-        setNickname(e.target.value)
+        let nicknameVal=e.target.value;
+        setNickname(nicknameVal)
       }
 
     const handlePlayerTitles=async()=>
@@ -132,24 +134,37 @@ const Banner = () => {
           }
         >
 
-        </div>
+        </div> 
 
         <div className='md:grid md:grid-cols-2 container mx-auto  relative h-full w-full justify-center items-center'>
 
               <div className="container mx-auto relative w-80 h-80 bottom-2/3">
-                 <img className=" object-fill" src='/assets/images/bannerGenerator/valoCard.png' />
-                  <p className='md:bottom-72 relative text-black text-center font-normal'>{nickname ? nickname : 'your card title'} </p>
-                  <p className='md:bottom-72 mt-2 relative text-white text-center font-normal'>{playerTitle ? playerTitle : 'player title'}</p>
-                    <img className='object-fit  w-12 h-12 md:bottom-52 md:left-16 relative' 
-                  src={setRank ? (setRank) : null}
-                  alt={`Selected Rank`} />
 
-
-                  <div id='banner' className=' mix-blend-lighten  absolute flex flex-col  top-0 bottom-12 bg-white w-full h-full px-4 z-n1 '>
-                      <img  style={{width:'1200px' , height:'600px'}} className='relative object-fill w-96 h-96  md:left-0 ' 
+                 <div id='banner' className=' absolute flex flex-col  top-0 bottom-12 w-full h-full px-4 z-10 '>
+                      <img  style={{width:'1300px' , height:'1200px'}} className='relative object-fill w-96 h-96  md:left-0 ' 
                         src={setBanner ? (setBanner) : null}
                         alt={`Selected Banner`} />
                   </div>
+                   
+               
+                  <div id='bannerFrame' className=' absolute flex flex-col  top-0 bottom-12 w-full h-full px-4 z-20 '>
+                    <img  className="object-fill" src='/assets/images/bannerGenerator/valoCard.png' />
+                  </div> 
+                
+
+                  <div id='rankImage' className=' md:top-96 md:left-20  absolute flex flex-col  top-0 bottom-12  px-4 w-40 h-40  z-20  '>
+                      <img className='object-fill md:top-40  relative opacity-100' 
+                      src={setRank ? (setRank) : null}
+                      alt={`Selected Rank`} />
+                  </div> 
+
+             
+                  <div id='playerInfoTitle' className=' md:top-80 md:left-20  absolute flex flex-col  top-0 bottom-12  px-4 w-40 h-40  z-20  '>
+                    <p className='md:top-32  relative text-black  text-center font-normal'>{nickname ? nickname : 'your card title'} </p>
+                    <p className='md:top-32 relative text-md  text-white text-center font-normal'>{playerTitle ? playerTitle : 'player title'}</p> 
+                  </div>
+                  
+
 
               </div>
 
@@ -170,6 +185,7 @@ const Banner = () => {
                         <ButtonForm handleClick={()=> openBannerModal() } title={`Select banner`} className="mt-12  mb-5"  />
                         <ButtonForm handleClick={()=> openRankModal() } title={`Select rank`} className="mt-12  mb-5"  />
                         <ButtonForm handleClick={()=> openWallpaperModal() } title={`Select wallpaper`} className="mt-12  mb-5"  />
+                        <ButtonForm handleClick={()=> openWallpaperModal() } title={`Download Banner`} className="mt-12  mb-5"  />
 
                     </Form>
 
@@ -191,7 +207,7 @@ const Banner = () => {
                         key={index}
                         src={item.smallArt}
                         alt={`Wallpaper ${index}`}
-                        className="hover:border-2 hover:border-white cursor-pointer object-cover w-full h-full"
+                        className={`hover:border-2 hover:border-white cursor-pointer object-cover w-full h-full`}
                         onClick={()=>handleBannerSelection(item.largeArt)}
                       />
                     ))}
