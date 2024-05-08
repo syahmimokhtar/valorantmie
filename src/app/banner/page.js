@@ -9,6 +9,7 @@ import Dropdown from "../components/formInput/Dropdown";
 import ButtonForm from "../components/formInput/ButtonForm";
 import Modal from "../components/modal/Modal";
 import axios from 'axios';
+import html2canvas from 'html2canvas-pro';
 
 
 const Banner = () => {
@@ -104,6 +105,42 @@ const Banner = () => {
         setSelectedWallpaper(wallpaperUrl);
       }
 
+
+      const handleClipImage=()=>
+        {
+          const element = document.getElementById('downloadBanner');
+          const options={allowTaint:false, 
+            useCORS:true,
+            backgroundColor:'#fff',
+            width:'1980',
+            height:'1080',
+            logging:true,
+            x: 500, // Element x-offset
+            y: 50,  // Element y-offset
+            x: 50,  // Crop canvas x-coordinate
+            y: 30   // Crop canvas y-coordinate
+
+          }
+
+          
+          if (!element) {
+              console.error("Element not found");
+              return;
+          }
+          html2canvas(element, options)
+          .then(canvas => {
+              const imageUrl = canvas.toDataURL();
+              const link = document.createElement('a');
+              link.download = 'banner.png';
+              link.href = imageUrl;
+              link.click();
+          })
+         
+          .catch(error => {
+              console.error('Error capturing element:', error);
+          });
+        }
+
     useEffect(()=>
     {
       handleWallPapers();
@@ -124,54 +161,59 @@ const Banner = () => {
       <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center ">
 
 
-        <div id='wallpaperBackground' className="absolute w-full h-full"
-          style={
-            {
-              backgroundImage: `url(${selectedWallpaper || '/assets/images/bannerGenerator/wallpaper.png'})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }
-          }
-        >
-
-        </div> 
-
-        <div className='md:grid md:grid-cols-2 container mx-auto  relative h-full w-full justify-center items-center'>
-
-              <div className="container mx-auto relative w-80 h-80 bottom-2/3">
-
-                 <div id='banner' className=' absolute flex flex-col  top-0 bottom-12 w-full h-full px-4 z-10 '>
-                      <img  style={{width:'1300px' , height:'1200px'}} className='relative object-fill w-96 h-96  md:left-0 ' 
+          <div id='wallpaperBackground' className="absolute w-full h-full"
+                    style={
+                      {
+                        backgroundImage: `url(${selectedWallpaper || '/assets/images/bannerGenerator/wallpaper.png'})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }
+                    }
+                  >
+                 <div id='banner' className=' absolute flex flex-col  top-12 bottom-12 md:left-96 md:w-80 md:h-80 px-4 z-10 opacity-90 '>
+                      <img  style={{width:'1980px' , height:'1080px'}} className='md:left-80  relative object-fill  ' 
                         src={setBanner ? (setBanner) : null}
                         alt={`Selected Banner`} />
                   </div>
                    
-               
-                  <div id='bannerFrame' className=' absolute flex flex-col  top-0 bottom-12 w-full h-full px-4 z-20 '>
+    
+                  <div id='bannerFrame' className='absolute container md:ml-96 flex flex-col md:top-12 mx-12 md:left-80 bottom-12 w-80 h-80  z-20 '>
                     <img  className="object-fill" src='/assets/images/bannerGenerator/valoCard.png' />
                   </div> 
-                
 
-                  <div id='rankImage' className=' md:top-96 md:left-20  absolute flex flex-col  top-0 bottom-12  px-4 w-40 h-40  z-20  '>
-                      <img className='object-fill md:top-40  relative opacity-100' 
+                  <div id='rankImage' className='container md:mx-4 md:my-10 md:top-80 md:left-96  absolute flex flex-col  top-0 bottom-12  px-4 w-40 h-40  z-20  '>
+                      <img className=' md:left-96   object-fill md:top-80  relative opacity-100' 
                       src={setRank ? (setRank) : null}
                       alt={`Selected Rank`} />
                   </div> 
 
              
-                  <div id='playerInfoTitle' className=' md:top-80 md:left-20  absolute flex flex-col  top-0 bottom-12  px-4 w-40 h-40  z-20  '>
-                    <p className='md:top-32  relative text-black  text-center font-normal'>{nickname ? nickname : 'your card title'} </p>
-                    <p className='md:top-32 relative text-md  text-white text-center font-normal'>{playerTitle ? playerTitle : 'player title'}</p> 
+                  <div id='playerInfoTitle' className=' container mx-4 md:top-96 md:left-96  absolute flex flex-col  top-0 bottom-12  px-4 w-40 h-40  z-20  '>
+                    <p className='md:top-40  md:left-96 relative text-black  text-center font-normal'>{nickname ? nickname : 'your card title'} </p>
+                    <p className='md:top-40 md:left-96 relative text-md  text-white text-center font-normal'>{playerTitle ? playerTitle : 'player title'}</p> 
                   </div>
                   
 
+                    
+                    
+               
 
-              </div>
 
 
+             </div> 
 
-              <div className="flex flex-col md:relative container mx-auto  w-full h-full">
-                  <Form >
+
+             <div className="drawer ">
+                <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content">
+                  <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label>
+                  {/* <ButtonForm htmlFor="my-drawer" title={`Open Drawer`} className="mt-12  mb-5"  /> */}
+                </div> 
+                <div className="drawer-side ">
+                  <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+                  <ul className="menu p-4 w-96 min-h-full bg-[#0A141E] text-base-content">
+
+                    <Form >
                       <Input handleChange={handleNickname} className="p-4 w-full text-2xl mb-5" placeholder="Enter NickName ..." />
                         <Dropdown onChange={handlePlayerTitle} className="p-4 w-full  mb-12" >
                               <option value="">Select Player Title</option>
@@ -185,15 +227,17 @@ const Banner = () => {
                         <ButtonForm handleClick={()=> openBannerModal() } title={`Select banner`} className="mt-12  mb-5"  />
                         <ButtonForm handleClick={()=> openRankModal() } title={`Select rank`} className="mt-12  mb-5"  />
                         <ButtonForm handleClick={()=> openWallpaperModal() } title={`Select wallpaper`} className="mt-12  mb-5"  />
-                        <ButtonForm handleClick={()=> openWallpaperModal() } title={`Download Banner`} className="mt-12  mb-5"  />
+                        <ButtonForm handleClick={()=> handleClipImage()} title={`Download Banner`} className="mt-12  mb-5"  />
 
                     </Form>
 
+                    
+                  </ul>
+                </div>
               </div>
 
-              
-        </div>
-         
+
+
         
                 
               {isBannerModalOpen && 
