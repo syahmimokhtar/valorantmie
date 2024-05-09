@@ -1,7 +1,7 @@
 
 import React from "react";
 
-const ButtonForm = ({ title, handleClick , ...otherProps}) => {
+const ButtonForm = ({ title, handleClick , children, ...otherProps}) => {
   return (
 
     <button onClick={handleClick} {...otherProps} type="button" className={

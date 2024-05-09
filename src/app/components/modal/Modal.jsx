@@ -6,8 +6,8 @@
     return (
             <>
                 {isOpen && (
-                <div   className="z-50 absolute container flex flex-col  p-20 md:-top-8  bottom-12  md:w-2/3 md:h-full    justify-center items-center"  {...otherProps}>
-                        <div className="bg-[#0A141E]  p-12 md:p-8 md:w-3/4   w-full h-full flex flex-col  "> 
+                <div   className="z-50 absolute container flex flex-col  px-8 py-12 md:-top-8   -top-12 bottom-12  md:w-2/3 md:h-full    justify-center items-center  overflow-auto"  {...otherProps}>
+                        <div className="bg-[#0A141E]  p-8 md:p-8 md:w-3/4   w-full h-full flex flex-col "> 
                             <div className="modal-header whitespace-normal">
                                     <button onClick={onClose} className="absolute md:top-24    md:right-60  hover:text-gray-800">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -17,12 +17,12 @@
                                 <h2 className="text-4xl text-center font-normal mb-4 ">{modalTitle}</h2>
                             </div>
 
-                            <div className="modal-body px-4 py-4 overflow-auto w-full h-full ">
+                            <div className="modal-body px-4 py-4  w-full h-full overflow-auto">
                                 {modalBody}
                             </div>
 
 
-                            <div className="py-4 modal-footer items-center justify-center md:mx-60  mx-20 ">
+                            <div className="container -mx-24 py-12  px-12   md:mx-60 ">
                                 <ButtonForm   handleClick={onClose} title="Close"/>
                             </div>
                         </div>
