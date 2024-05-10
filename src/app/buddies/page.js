@@ -101,12 +101,12 @@ const Buddies = () => {
                     <img src={`/assets/images/buddies.jpg`}  style={{width:'1980px', height:'2000px'}} className="object-cover   overflow-auto " alt="buddies" />
             </div>
 
-            <div className=" w-full h-full  relative px-12 py-12 mb-20 justify-center items-center">
+            <div className=" w-full h-full  relative p-8 mb-20 justify-center items-center overflow-x-hidden">
                     <Input  placeholder="Search buddies here..."
                     type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
-                     className="container md:mx-20 mt-4 -mb-12 p-4   rounded border" />
+                    className="md:w-full w-full container px-4 py-4 md:mx-20 mx-2 mt-4 mb-12  rounded border" />
                     
-                    <div className="md:grid md:grid-cols-5 grid  gap-2 -mx-4 px-4 py-20">
+                    <div className="md:grid md:grid-cols-5 md:gap-2">
                               
                     {filteredBuddies.length>0 ? (
                                 filteredBuddies.map((buddy, index) => (
@@ -130,13 +130,6 @@ const Buddies = () => {
 
 
               </div>
-
-{/*   
-              <div className="absolute p-4 flex flex-row  container mx-4   bottom-4    justify-center items-center ">
-                        <Button title={`Previous <`} handleClick={prevPage} disabled={currentPage === 1} />
-                        <Button title={`Next >`} handleClick={nextPage} disabled={currentPage === totalPages} />
-                        <p className=" bottom-0 right-0 text-2xl text-white mt-4 mr-8 whitespace-normal">Page {currentPage} of {totalPages}</p>
-               </div> */}
 
                
         </main>

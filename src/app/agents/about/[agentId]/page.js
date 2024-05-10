@@ -25,17 +25,12 @@ const AboutAgent = () => {
     );
     const agentData = response.data.data;
     setAgent(agentData);
-    console.log(agentData);
   };
 
   useEffect(() => {
     getAgentDetails(agentId);
   }, [agentId]);
-          {/* from-[#c7f558] via-[#d56324] to-[#3A2656] bg-[url('/assets/images/agent_select.jpg') 
-        ${gradientColors(`from-bg-[${agent.backgroundGradientColors[0]}] via-bg-[#${agent.backgroundGradientColors[1]}] to-bg-[#${agent.backgroundGradientColors[2]}]`)}
-        */}
-
-
+        
 
   
   return (
@@ -50,30 +45,30 @@ const AboutAgent = () => {
 
 
           <div style={{backgroundImage:`url('${agent.background}')`   }}
-            className={`flex flex-col bg-center md:bg-cover 
+            className={`flex flex-col bg-center md:bg-cover
         relative mt-24 md:m-8 lg:m-12  h-60 overflow-hidden  px-20 py-52 `}
           >
-            <div className={`flex flex-col  relative w-80 mb-5  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500`} >
+            <div className={` z-20 flex flex-col  relative w-80 mb-5  bg-gradient-to-r from-red-500 via-pink-700 to-purple-500`} >
               <h2 className="text-6xl text-center text-white">
                 {agent.displayName}
               </h2>
             </div>
 
             {agent.role && (
-              <div  className="flex flex-col  relative w-80 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                <h2 className="text-6xl text-center text-white">
+              <div  className=" z-20 flex flex-col  relative w-80 bg-gradient-to-r from-red-500 via-pink-700 to-purple-500 ">
+                <h2 className=" text-6xl text-center text-white">
                 {agent.role.displayName}
                 </h2>
               </div>
             )}
 
-              <img  className="w-96 h-96 scale-200 absolute right-52 md:top-28 md:bottom-1/2 translate-x-24" src={`${agent.bustPortrait}`} />
+              <img  className=" right-24 top-20 w-96 scale-200 md:w-96 md:h-96 md:scale-200 absolute md:right-52 md:top-28 md:bottom-1/2 translate-x-24" src={`${agent.bustPortrait}`} />
           </div>
             
 
           {/* DESCRIPTION */}
-          <h2 className="text-5xl text-center font-normal ">DESCRIPTION</h2>
-          <div className={` bg-[#0A141E] mb-12 mt-20 md:m-12 lg:m-12  h-auto  p-20 justify-center items-center`}>
+          <h2 className="text-5xl text-center font-normal mt-12 md:mt-0">DESCRIPTION</h2>
+          <div className={` bg-[#0A141E] mb-12  md:m-12 lg:m-12  h-auto  p-20 justify-center items-center`}>
               <p className="text-5xl text-center font-normal">
                 {agent.description}
               </p>
@@ -85,7 +80,7 @@ const AboutAgent = () => {
           {/* AGENT SKILLS */}
           <h2 className="text-5xl text-center font-normal ">ABILITIES</h2>
           <div
-            className={`relative w-full h-full md:grid md:grid-cols-4 md:gap-1 mt-20 mb-10  bg-[#0A141E]
+            className={`relative md:w-full  md:h-full md:grid md:grid-cols-4 md:gap-2 mt-20 mb-10  bg-[#0A141E]
                 `}
            > 
 

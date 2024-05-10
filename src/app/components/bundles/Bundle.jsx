@@ -16,10 +16,10 @@ const Bundle = () => {
         <div className="md:grid grid-cols-2 relative justify-center items-center">
 
         <div className="relative flex flex-col h-full w-full overflow-hidden">
-            <img className=" object-cover opacity-20" src="/assets/images/gun_buddies.jpg"alt="buddies"/>
+            <img className=" object-cover h-96 md:h-full opacity-20" src="/assets/images/gun_buddies.jpg"alt="buddies"/>
       
-          <div className="left-16 top-12 absolute sm:p-24 sm:mx-16 ">
-            <div className=" absolute flex flex-col justify-center items-center ">
+          <div className="md:left-24 top-12 absolute p-4 md:mx-16 mx-2">
+            <div className=" absolute flex flex-col justify-center items-center">
               <h3 className="text-[white] text-center font-normal text-7xl  whitespace-nowrap mb-5 ">
                 GUN BUDDIES
               </h3>
@@ -31,9 +31,9 @@ const Bundle = () => {
       
 
         <div className="relative flex flex-col h-full w-full overflow-hidden">
-            <img className="opacity-20"src="/assets/images/bundle_pic.jpg" alt="buddies"/>
+            <img className=" object-cover  opacity-20  h-96 md:h-full "src="/assets/images/bundle_pic.jpg" alt="buddies"/>
       
-          <div className="left-12 top-12 absolute sm:p-24 sm:mx-16 ">
+            <div className="md:left-24 top-12 absolute p-4 md:mx-16 mx-2">
             <div className=" absolute flex flex-col justify-center items-center ">
               <h3 className="text-[white] text-center font-normal text-7xl  whitespace-nowrap mb-5 ">
                 WEAPON SKINS

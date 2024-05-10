@@ -87,13 +87,13 @@ const Bundles = () => {
                 <img src={`/assets/images/bundles.jpg`}  style={{width:'1980px', height:'1080px'}} className="object-cover " alt="buddies" />
         </div> 
 
-        <div className="w-full h-full relative mt-12 mb-20 justify-center items-center">
+        <div className="w-full h-full relative mt-12 mb-20 p-12 justify-center items-center">
                   <Input  placeholder="Search bundles here..."
                     type="text" value={searchQuery} handleChange={handleInputChange}
-                    className="md:w-full w-80 container px-4 py-4 md:mx-20 mx-12 mt-4 -mb-12  rounded border" />
+                    className="md:w-full w-full container px-4 py-4 md:mx-20 mx-2 mt-4 mb-12  rounded border" />
                     
 
-            <div className="md:grid md:grid-cols-5 grid gap-2 ">
+            <div className="md:grid md:grid-cols-5 grid md:gap-2 ">
               
             {filteredBundles.length > 0 ? 
                 (   filteredBundles.map((item, index) => 
@@ -127,7 +127,7 @@ const Bundles = () => {
           isOpen={isOpen}
           onClose={closeModal}
           modalTitle={modalData.displayName}
-          modalBody={<img src={`${modalData.displayIcon}`} className='cursor-pointer object-cover w-full h-full' alt={`${modalData.displayName}`} />} 
+          modalBody={<img src={`${modalData.displayIcon}`} className='cursor-pointer md:object-cover object-fit w-full h-full' alt={`${modalData.displayName}`} />} 
         />
       )}
 

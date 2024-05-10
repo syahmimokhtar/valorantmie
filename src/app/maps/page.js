@@ -56,20 +56,20 @@ const Maps = () => {
                   <img src={item.splash} style={{ width: '1920px', height: '1080px' }} className=" opacity-30 h-full w-full" />
 
                   <div className="container mx-auto absolute inset-8	 flex flex-col md:items-center ">
-                        <h2 className=" sm:text-center md:text-center font-normal text-7xl md:text-8xl">{item.displayName}</h2>
+                        <h2 className=" text-left md:text-center font-normal text-7xl md:text-8xl">{item.displayName}</h2>
                         {item.coordinates !== null && (
-                          <h2 className=" sm:text-left  md:text-center font-normal text-4xl md:text-4xl mb-20">{item.coordinates}</h2>
+                          <h2 className=" text-left  md:text-center font-normal text-4xl md:text-4xl mb-20">{item.coordinates}</h2>
                         )}
 
                       {item.displayIcon !== null && (
-                        <div className="md:container md:mx-auto flex flex-col sm:m-5 px-5 py-5 justify-center md:items-center">
-                          <img src={`${item.displayIcon}`} className="relative w-96 h-96 mb-5" alt={`${item.displayName}`} />
+                        <div className="md:container md:mx-auto flex flex-col  justify-center md:items-center">
+                          <img src={`${item.displayIcon}`} className="relative md:w-96 w-80 h-96 mb-5" alt={`${item.displayName}`} />
                           </div>
 
                       )}
 
                       {item.tacticalDescription && ( 
-                        <div className="md:container md:mx-auto flex flex-col sm:m-5 px-5 py-5 bg-black w-96 bg-opacity-40">
+                        <div className="md:container md:mx-auto flex flex-col  mx-16 p-4 bg-black w-52 bg-opacity-40 items-center justify-center">
                             <p className="md:text-3xl  md:text-center sm:text-left text-xl  font-normal  ">{item.tacticalDescription}</p>
                         </div>
                           ) } 
@@ -82,59 +82,6 @@ const Maps = () => {
             ))}
       </Carousel>
 
-
-
-
-
-
-
-
-
-{/* 
-            { <div className="px-20 mt-28  carousel w-full min-h-screen">
-                {map &&  map.map((item, index) => (
-                <div  key={index} className={`h-full carousel-item ${index === currentIndex ? 'visible' : 'hidden'}`}>
-
-                    <div className="relative w-full  items-center">
-                        <img src={`${item.splash}`} style={{width: '1920px', height: '1080px'}} className="opacity-30 h-full w-full " /> 
-
-                        <div className="container mx-auto absolute inset-8	 flex flex-col md:items-center ">
-                              <h2 className=" sm:text-center md:text-center font-normal text-7xl md:text-8xl">{item.displayName}</h2>
-                              {item.coordinates !== null && (
-                                <h2 className=" sm:text-left  md:text-center font-normal text-4xl md:text-4xl mb-20">{item.coordinates}</h2>
-                              )}
-
-                            {item.displayIcon !== null && (
-                              <div className="md:container md:mx-auto flex flex-col sm:m-5 px-5 py-5 justify-center md:items-center">
-                                <img src={`${item.displayIcon}`} className="relative w-96 h-96 mb-5" alt={`${item.displayName}`} />
-                                </div>
-
-                            )}
-
-                            {item.narrativeDescription && ( 
-                              <div className="md:container md:mx-auto flex flex-col sm:m-5 px-5 py-5 bg-black w-96 bg-opacity-40">
-                                  <p className="md:text-3xl  md:text-center sm:text-left text-xl  font-normal  ">{item.narrativeDescription}</p>
-                              </div>
-                                ) } 
-
-
-                          </div>
-                            
-
-                      </div>
-                </div>
-                    ))}
-              </div> }
-
-
-            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <button onClick={goToPreviousItem} className="btn btn-circle ">
-                    ❮
-                    </button>
-                    <button onClick={goToNextItem} className="btn btn-circle ">
-                    ❯
-                    </button>
-            </div> */}
 
 
 

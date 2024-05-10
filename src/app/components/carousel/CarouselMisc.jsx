@@ -39,7 +39,7 @@ const CarouselMisc = () => {
                   <div key={index} className="relative  h-80 w-full items-center ">
                     <img src={item.href} style={{width:'auto', height:'auto'}} className="object-cover  md:h-80 sm:h-80 w-full opacity-80" />
                     <div onClick={()=> router.push(`../${item.route}`)} className="cursor-pointer absolute top-1/4 md:left-1/3  mflex items-center justify-center transition-transform duration-300 transform hover:-translate-y-2 hover:scale-105">
-                      <div className="bg-[#DCD9D4] px-5 py-5 ">
+                      <div className="bg-[#DCD9D4] container p-4 mx-8 ">
                         <h2 className="text-[#ff4656] font-bold  md:text-9xl text-8xl text-center">{item.name}</h2>
                     </div>
                   </div>  

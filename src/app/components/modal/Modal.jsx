@@ -6,10 +6,11 @@
     return (
             <>
                 {isOpen && (
-                <div   className="z-50 absolute container flex flex-col  px-8 py-12 md:-top-8   -top-12 bottom-12  md:w-2/3 md:h-full    justify-center items-center  overflow-auto"  {...otherProps}>
-                        <div className="bg-[#0A141E]  p-8 md:p-8 md:w-3/4   w-full h-full flex flex-col "> 
-                            <div className="modal-header whitespace-normal">
-                                    <button onClick={onClose} className="absolute md:top-24    md:right-60  hover:text-gray-800">
+                <div   className="z-50 bg-[yellow] bg-opacity-40 absolute container flex flex-col  p-20 md:top-8  -top-12 bottom-12  md:w-full md:h-full    justify-center items-center  "  {...otherProps}>
+                        <div  className="bg-[#0A141E] flex flex-col md:w-full md:h-full relative"> 
+
+                            <div className="md:p-4 modal-header whitespace-normal">
+                                    <button onClick={onClose} className="absolute md:top-24    md:right-60  hover:text-red-800">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                                         </svg>
@@ -17,7 +18,7 @@
                                 <h2 className="text-4xl text-center font-normal mb-4 ">{modalTitle}</h2>
                             </div>
 
-                            <div className="modal-body px-4 py-4  w-full h-full overflow-auto">
+                            <div className="modal-body p-4  w-full h-80 ">
                                 {modalBody}
                             </div>
 
