@@ -39,7 +39,7 @@ const AboutWeapons = () => {
             <Navbar />
 
            
-        <main className="relative lg:py-16 min-h-screen  bg-[#0A141E] ">
+        <main className="relative lg:py-16 min-h-screen    ">
 
 
                 <div className="absolute w-full h-full opacity-30 ">
@@ -51,7 +51,7 @@ const AboutWeapons = () => {
                             />
                </div>
            
-               <div className=" w-full h-full relative  px-12 py-12  mt-12 mb-20 justify-center items-center">
+               <div className=" w-full h-full relative   mt-12 mb-20 justify-center items-center">
                     <div className="md:grid md:grid-cols-4 grid  gap-2 ">
                     {Array.isArray(weapons) &&
                         weapons.map((item, index) => (

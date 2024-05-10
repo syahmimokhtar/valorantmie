@@ -4,7 +4,7 @@ const CardWeapon = ({ handleClick, children , displayName, ...otherProps}) => {
 
   
   return (
-    <div {...otherProps} onClick={handleClick} className=" bg-[#0A141E]  mt-12 mr-2 py-12 px-20 w-full h-52 relative flex flex-col   border-2 border-[#ff4656]
+    <div {...otherProps} onClick={handleClick} className=" bg-[#0A141E]  mt-12 mr-2 p-6 w-full h-52 relative flex flex-col   border-2 border-[#ff4656]
     hover:border-[#fff]
      cursor-pointer 
     

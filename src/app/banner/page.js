@@ -10,8 +10,7 @@ import ButtonForm from "../components/formInput/ButtonForm";
 import Modal from "../components/modal/Modal";
 import axios from 'axios';
 import html2canvas from 'html2canvas-pro';
-import domtoimage from 'dom-to-image';
-
+import Toast from "../components/formInput/Toast";
 
 const Banner = () => {
 
@@ -43,10 +42,14 @@ const Banner = () => {
   const [playerTitle, setPlayerTitle]=useState("");
 
   const [sideBar, setSidebar]=useState(false);
+  const [toast, setToast]=useState(false);
 
   const openSidebar=()=>{setSidebar(true)}
   const closeSidebar=()=>{setSidebar(false)}
   
+  const closeToast=()=>{setToast(false)}
+
+
   const handleWallPapers=async()=>
     {
       const headers={'Content-Type' : 'application/json'}
@@ -138,6 +141,7 @@ const Banner = () => {
               link.download = 'banner.png';
               link.href = imageUrl;
               link.click();
+              setToast(true);
           })
          
           .catch(error => {
@@ -208,12 +212,10 @@ const Banner = () => {
               <div className="relative md:top-96  md:mr-5 md:mt-8  z-40">
                <ButtonForm handleClick={()=> openSidebar() } title={`Open Settings`} className="mt-12 mb-5 "  />
               </div>
-              )}
+                )}
 
-
-              {sideBar && ( 
+              {sideBar &&  (
               <div style={{width:'400px', height:'900px'}} className="z-40   md:-left-96 md:-ml-96 relative w-full h-full bg-[white] flex flex-col" id="mySidebar">
-                
                   <Form >
                       <Input handleChange={handleNickname} className="p-4 w-full text-2xl mb-5" placeholder="Enter NickName ..." />
                         <Dropdown onChange={handlePlayerTitle} className="p-4 w-full  mb-12" >
@@ -229,17 +231,20 @@ const Banner = () => {
                         <ButtonForm handleClick={()=> openRankModal() } title={`Select rank`} className="mt-12  mb-5"  />
                         <ButtonForm handleClick={()=> openWallpaperModal() } title={`Select wallpaper`} className="mt-12  mb-5"  />
                         <ButtonForm handleClick={()=> handleClipImage()} title={`Download Banner`} className="mt-12  mb-5"  />
-                        <ButtonForm handleClick={()=> closeSidebar()} title={`Close Menu`} className="mt-12  mb-5"  />
+                        <ButtonForm handleClick={()=> closeSidebar()} title={`Close Menu`} className="mt-12  mb-5"  /> 
 
                     </Form>
 
 
               </div>
-              )}
 
-
+            )}
         
                 
+        {toast && (
+            <Toast title="Banner downloaded" onClose={()=> closeToast()} />
+        )}
+
               {isBannerModalOpen && 
               <Modal isOpen={isBannerModalOpen} 
                 modalTitle={`Select Banner`}  

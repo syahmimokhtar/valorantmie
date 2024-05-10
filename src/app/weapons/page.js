@@ -25,7 +25,6 @@ const Weapon = () => {
       const response = await axios.get(dataUrl, { headers: headers });
       const weaponsData = response.data.data;
       setWeapons(weaponsData);
-      console.log(weaponsData);
     } catch (error) {
       console.log("error", error);
     }
@@ -52,14 +51,15 @@ const Weapon = () => {
           />
         </div>
 
-        <div className=" w-full h-full relative  px-12 py-12  mt-12 mb-20 justify-center items-center">
-          <div className="md:grid md:grid-cols-4 grid  gap-4 ">
+        <div className=" w-auto h-full relative p-4  mb-20 justify-center items-center  overflow-x-hidden">
+          <div className="md:grid md:grid-cols-4  md:gap-4 ">
             {weapons &&
               weapons.map((item, index) => (
-                
                 <CardWeapon key={index} handleClick={()=>viewWeaponDetails(item.uuid)} 
                   displayName={item.displayName}>
                   <img
+                    width={500}
+                    height={500}
                     src={item.displayIcon}
                     alt={item.displayName}
                     className="object-fit w-full h-full"

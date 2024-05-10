@@ -101,10 +101,10 @@ const Buddies = () => {
                     <img src={`/assets/images/buddies.jpg`}  style={{width:'1980px', height:'2000px'}} className="object-cover   overflow-auto " alt="buddies" />
             </div>
 
-            <div className=" w-full h-full  relative p-8 mb-20 justify-center items-center overflow-x-hidden">
+            <div className=" w-full h-full  relative md:p-8 mb-20 justify-center items-center overflow-x-hidden">
                     <Input  placeholder="Search buddies here..."
                     type="text" value={searchQuery} handleChange={e => setSearchQuery(e.target.value)}
-                    className="md:w-full w-full container px-4 py-4 md:mx-20 mx-2 mt-4 mb-12  rounded border" />
+                    className="md:w-full w-80 container px-4 py-4 md:mx-28 mx-7 mt-4 mb-12  rounded border" />
                     
                     <div className="md:grid md:grid-cols-5 md:gap-2">
                               
