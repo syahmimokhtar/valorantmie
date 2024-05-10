@@ -66,7 +66,6 @@ const Bundles = () => {
 
     const handleInputChange=(e)=>
       {
-        console.log(e.target.value)
         setSearchQuery(e.target.value)
       }
 
