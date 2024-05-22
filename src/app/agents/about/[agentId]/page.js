@@ -79,17 +79,19 @@ const AboutAgent = () => {
 
           {/* AGENT SKILLS */}
           <h2 className="text-5xl text-center font-normal ">ABILITIES</h2>
-          <div
-            className={`relative md:w-full  md:h-full md:grid md:grid-cols-4 md:gap-2 mt-20 mb-10  bg-[#0A141E]
-                `}
-           > 
 
-              {agent && agent.abilities && agent.abilities.map((item, index) => (
+          <div className="container mx-auto p-4">
+              <div
+                className={`relative md:w-full  md:h-full md:grid md:grid-cols-5 md:gap-1 mt-20 mb-10 justify-center place-items-center items-center  bg-[#0A141E]
+                    `}
+              > 
+                  {agent && agent.abilities && agent.abilities.map((item, index) => (
 
-                <CardSkill key={index} cardColor={`bg-[#1E2C3D]`} skillPicture={`${item.displayIcon}`} 
-                skillTitle={item.displayName} skillDesc={item.description}/>
-                )) }
+                    <CardSkill key={index} cardColor={`bg-[#1E2C3D]`} skillPicture={`${item.displayIcon}`} 
+                    skillTitle={item.displayName} skillDesc={item.description}/>
+                    )) }
 
+              </div>
           </div>
 
 

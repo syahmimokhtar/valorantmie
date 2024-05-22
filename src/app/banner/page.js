@@ -172,7 +172,7 @@ const Banner = () => {
       <main className="relative flex min-h-screen flex-col bg-[#0A141E] items-center justify-center  ">
 
 
-          <div id='downloadBanner' className="absolute w-full h-full"
+          <div id='downloadBanner' className="absolute w-full h-full mb-10"
                     style={
                       {
                         backgroundImage: `url(${selectedWallpaper || '/assets/images/bannerGenerator/wallpaper.png'})`,
@@ -193,7 +193,7 @@ const Banner = () => {
                   </div> 
 
                   <div id='rankImage' className='container md:mx-20 md:my-10 md:top-80 md:left-96  absolute flex flex-col  top-96 left-28 bottom-24  px-4 w-40 h-40  z-20  '>
-                      <img className=' md:left-96   object-fill md:top-80  top-72 relative opacity-100' 
+                      <img className=' md:left-96   object-fill md:top-96  top-72 relative opacity-100' 
                       src={setRank ? (setRank) : null}
                       alt={`Selected Rank`} />
                   </div> 
@@ -209,11 +209,13 @@ const Banner = () => {
 
 
               {!sideBar &&  (
-              <div className="relative md:top-96  md:mr-5 md:mt-8  z-40">
+              <div className="relative md:top-96  top-96 md:mr-5 md:mt-8  z-40">
                <ButtonForm handleClick={()=> openSidebar() } title={`Open Settings`} className="mt-12 mb-5 "  />
               </div>
                 )}
 
+
+  
               {sideBar &&  (
               <div style={{width:'400px', height:'900px'}} className="z-40   md:-left-96 md:-ml-96 relative w-full h-full bg-[white] flex flex-col" id="mySidebar">
                   <Form >
